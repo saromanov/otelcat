@@ -48,9 +48,7 @@ jobs:
 
       - name: Build
         working-directory: ${{ github.workspace }}
-        env:
-          # cross overrides the default runner; keep flags explicit
-          RUSTFLAGS: ""
+        shell: bash
         run: |
           if [ "${{ matrix.use-cross }}" = "true" ]; then
             cross build --release --target ${{ matrix.target }}
